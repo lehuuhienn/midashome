@@ -238,10 +238,16 @@ function themecustom_scripts() {
 	// JS
 	wp_enqueue_script( 'themecustom-frontend-js-bootstrap3', $fe . 'vendor/bootstrap/js/bootstrap.bundle.min.js', array( 'jquery' ), null, true);
 	// wp_enqueue_script( 'themecustom-frontend-js-bootstrap4', $fe . 'vendor/jquery/bootstrap.min.js', array( 'jquery' ), null, true);
-	wp_enqueue_script( 'themecustom-frontend-js-slick', "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js", array( 'jquery' ), null, true);
+	wp_enqueue_script( 'themecustom-frontend-js-slick', $fe . 'vendor/slick/slick.min.js', array( 'jquery' ), null, true);
 	wp_enqueue_script( 'themecustom-frontend-js-main', $fe . 'js/main.js', array( 'jquery' ), null, true);
 }
 add_action( 'wp_enqueue_scripts', 'themecustom_scripts' );
+
+
+/**
+ * POST-TYPE
+ */
+require get_template_directory() . '/inc/post-type.php';
 
 /**
  * Default color filters.

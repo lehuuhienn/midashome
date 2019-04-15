@@ -12,12 +12,12 @@ if(!function_exists("get_field")){
 }
 
 $options = acf_add_options_page( array(
-	'page_title' => 'Page Options',
+	'page_title' => __('Themes', 'themecustom'),
 	'redirect'   => true
 ));
 
 acf_add_options_sub_page( array(
-	'page_title'	=> 'Page Content',
+	'page_title'	=> __('Midashome Theme Options', 'themecustom'),
 	'parent_slug'	=> $options['menu_slug']
 ));
 
