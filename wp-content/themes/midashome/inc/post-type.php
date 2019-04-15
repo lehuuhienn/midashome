@@ -26,7 +26,7 @@ if ( !function_exists('create_post_types')) {
 				'publicly_queryable'       => true,
 				'query_var'                => true,
 				'exclude_from_search'      => true,
-				'rewrite'                  => array( 'slug' => "/", 'with_front' => false),
+				'rewrite'                  => array( 'slug' => __('nha', 'themecustom'), 'with_front' => false),
 				'supports'                 => array( 'title', 'excerpt', 'page-attributes', 'thumbnail', "editor" ),
 			)
 		);
