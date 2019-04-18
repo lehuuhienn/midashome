@@ -21,7 +21,8 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
         <meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link rel="profile" href="https://gmpg.org/xfn/11" />
+        <link rel="profile" href="https://gmpg.org/xfn/11" />
+        <link rel="icon" href="<?php the_frontend(); ?>img/icons/logo.ico">
 
         <script>window.jQuery || document.write('<script src="<?php the_frontend(); ?>vendor/jquery/jquery.1.12.4.min.js"><\/script>')</script>
         <?php wp_head(); ?>
@@ -42,7 +43,8 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-midas">
-            <a class="logo color-white" href="<?php echo home_url(); ?>">LOGO</a>
+            <a class="logo color-white mr-5" href="/"><img height="50px"
+                    src="<?php the_frontend(); ?>img/Official Logo.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -59,7 +61,8 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
                         </a>
                         <div class="dropdown-menu"
                             aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="product_1.html">NHÀ PHỐ BIỆT THỰ</a>
+                            <a class="dropdown-item" href="product_1.html">NHÀ
+                                PHỐ BIỆT THỰ</a>
                             <a class="dropdown-item" href="#">CHUNG CƯ - CĂN HỘ</a>
                             <a class="dropdown-item" href="#">KHÁCH SẠN - NHÀ
                                 NGHỈ</a>
