@@ -42,7 +42,7 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-midas">
-            <a class="logo color-white" href="/">LOGO</a>
+            <a class="logo color-white" href="<?php echo home_url(); ?>">LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false"
