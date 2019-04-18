@@ -25,7 +25,7 @@ html {
 .red-line{
     background-color: #770000;
     height: 2px;
-    width: 94rem;
+    width: 100%;
     position: absolute;
     margin-top: 17px;
     z-index: -1;
@@ -41,6 +41,7 @@ html {
 }
 .mt-20{
     margin-top: 10px;
+    margin-left: 0.5%;
 }
 .img-about{
     float: right;
@@ -571,4 +572,7 @@ body {
 }
 .videos {
     float: left;
+}
+.bg-term {
+    background-color: whitesmoke;
 }
