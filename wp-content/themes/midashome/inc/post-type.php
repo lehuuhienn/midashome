@@ -108,3 +108,4 @@ function change_post_object_label() {
 }
 add_action( 'init', 'change_post_object_label' );
 add_action( 'admin_menu', 'change_post_menu_label' );
+

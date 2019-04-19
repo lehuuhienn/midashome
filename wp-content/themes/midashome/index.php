@@ -16,19 +16,24 @@
 
 get_header();
 
-if ( have_posts() ) {
+if(get_post_type()==="post"){
+	get_template_part( 'template-parts/posts', "page");
+}
+else{
+	if ( have_posts() ) {
 
-	// Load posts loop.
-	while ( have_posts() ) {
-		the_post();
-		get_template_part( 'template-parts/content', "page" );
+		// Load posts loop.
+		while ( have_posts() ) {
+			the_post();
+			get_template_part( 'template-parts/content', "page" );
+		}
+	
+	} else {
+	
+		// If no content, include the "No posts found" template.
+		get_template_part( 'template-parts/content', 'none' );
+	
 	}
-
-} else {
-
-	// If no content, include the "No posts found" template.
-	get_template_part( 'template-parts/content', 'none' );
-
 }
 		
 get_footer();

@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: Home Template
+    Template Name: Trang chủ Template
 */
 
 get_header();
@@ -1716,77 +1716,6 @@ get_header();
             </div>
             <!-- END WORK -->
 
-            <!-- LOGO -->
-            <div class="about">
-                <div class="red-line"></div>
-                <button class="button-midas">VIDEO</button>
-                <div class="row mt-3 text-center">
-                    <div class="col">
-                        <iframe class="videos" width="420" height="315"
-                            src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <h5 class="title-list">BẠN CẦN TÌM</h5>
-                            <div class="col text-left">
-                                <div class="pt-3"><a href="#">Mẫu nhà cấp 4</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự sân vườn</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự 2 tầng
-                                    </a></div>
-                                <div class="pt-2"><a href="#">Mẫu thiết kế biệt
-                                        thự đẹp</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu văn
-                                        phòng-khách sạn</a></div>
-                                <div class="pt-2"> <a href="#">Biệt thự cổ điển
-                                        đẹp</a></div>
-                                <div class="pt-2"> <a href="#">Thiết kế nhà
-                                        thương mại</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu biệt thự sang
-                                        trọng</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu thiết kế nhà
-                                        số</a></div>
-                            </div>
-                            <div class="col text-left">
-                                <div class="pt-3"><a href="#">Mẫu nhà cấp 4</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự sân vườn</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự 2 tầng
-                                    </a></div>
-                                <div class="pt-2"><a href="#">Mẫu thiết kế biệt
-                                        thự đẹp</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu văn
-                                        phòng-khách sạn</a></div>
-                                <div class="pt-2"> <a href="#">Biệt thự cổ điển
-                                        đẹp</a></div>
-                                <div class="pt-2"> <a href="#">Thiết kế nhà
-                                        thương mại</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu biệt thự sang
-                                        trọng</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu thiết kế nhà
-                                        số</a></div>
-                            </div>
-                            <div class="col text-left">
-                                <div class="pt-3"><a href="#">Mẫu nhà cấp 4</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự sân vườn</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự 2 tầng
-                                    </a></div>
-                                <div class="pt-2"><a href="#">Mẫu thiết kế biệt
-                                        thự đẹp</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu văn
-                                        phòng-khách sạn</a></div>
-                                <div class="pt-2"> <a href="#">Biệt thự cổ điển
-                                        đẹp</a></div>
-                                <div class="pt-2"> <a href="#">Thiết kế nhà
-                                        thương mại</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu biệt thự sang
-                                        trọng</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu thiết kế nhà
-                                        số</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END WORK -->
         </div>
         <!-- /.container -->
 

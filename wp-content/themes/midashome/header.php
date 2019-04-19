@@ -43,8 +43,9 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-midas">
-            <a class="logo color-white mr-5" href="/"><img height="50px"
-                    src="<?php the_frontend(); ?>img/Official Logo.png" alt=""></a>
+            <a class="logo color-white mr-5" href="<?php echo home_url(); ?>">
+                <img height="50px" src="<?php the_frontend(); ?>img/Official Logo.png" alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -63,76 +64,6 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
                             aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="product_1.html">NHÀ
                                 PHỐ BIỆT THỰ</a>
-                            <a class="dropdown-item" href="#">CHUNG CƯ - CĂN HỘ</a>
-                            <a class="dropdown-item" href="#">KHÁCH SẠN - NHÀ
-                                NGHỈ</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle color-white" href="#"
-                            id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            NỘI THẤT
-                        </a>
-                        <div class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">NHÀ PHỐ BIỆT THỰ</a>
-                            <a class="dropdown-item" href="#">CHUNG CƯ - CĂN HỘ</a>
-                            <a class="dropdown-item" href="#">KHÁCH SẠN - NHÀ
-                                NGHỈ</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle color-white" href="#"
-                            id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            NGOẠI THẤT SÂN VƯỜN
-                        </a>
-                        <div class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">NHÀ PHỐ BIỆT THỰ</a>
-                            <a class="dropdown-item" href="#">CHUNG CƯ - CĂN HỘ</a>
-                            <a class="dropdown-item" href="#">KHÁCH SẠN - NHÀ
-                                NGHỈ</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle color-white" href="#"
-                            id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            PHONG THỦY
-                        </a>
-                        <div class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">NHÀ PHỐ BIỆT THỰ</a>
-                            <a class="dropdown-item" href="#">CHUNG CƯ - CĂN HỘ</a>
-                            <a class="dropdown-item" href="#">KHÁCH SẠN - NHÀ
-                                NGHỈ</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle color-white" href="#"
-                            id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            XÂY DỰNG
-                        </a>
-                        <div class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">NHÀ PHỐ BIỆT THỰ</a>
-                            <a class="dropdown-item" href="#">CHUNG CƯ - CĂN HỘ</a>
-                            <a class="dropdown-item" href="#">KHÁCH SẠN - NHÀ
-                                NGHỈ</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle color-white" href="#"
-                            id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            MUA BÁN NHÀ ĐẤT
-                        </a>
-                        <div class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">NHÀ PHỐ BIỆT THỰ</a>
                             <a class="dropdown-item" href="#">CHUNG CƯ - CĂN HỘ</a>
                             <a class="dropdown-item" href="#">KHÁCH SẠN - NHÀ
                                 NGHỈ</a>
