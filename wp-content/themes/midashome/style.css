@@ -13,3 +13,64 @@ Text Domain: themecustom
 Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready
 
 */
+.item-drop {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+.item-drop img,
+.item-drop video,
+.item-drop iframe,
+.item-drop embed,
+.item-drop object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    font-family: 'object-fit: cover;';
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+@media (max-width: 767px) {
+    .item-drop video,
+    .item-drop iframe,
+    .item-drop embed,
+    .item-drop object {
+        -o-object-fit: fill;
+        object-fit: fill;
+    }
+}
+.item-drop .cap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+}
+.item-drop.ratio-11 {
+    padding-top: 100%;
+}
+.item-drop.ratio-169 {
+    padding-top: 56.25%;
+}
+.item-drop.ratio-43 {
+    padding-top: 75%;
+}
+@media (max-width: 767px) {
+    .item-drop.sm-no-drop {
+        padding-top: 0;
+    }
+    .item-drop.sm-no-drop img {
+        position: static;
+    }
+}
+.item-banner {
+    height: 36vw;
+    max-height: 590px;
+}
