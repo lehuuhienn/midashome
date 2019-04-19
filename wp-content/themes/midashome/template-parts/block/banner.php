@@ -1,7 +1,11 @@
 <?php
-    global $post;
+    global $post, $banner_img_alt;
+
     $default_img = get_frontend()."img/banner1.png";
-    if(has_post_thumbnail()){
+    if($banner_img_alt){
+        $default_img = $banner_img_alt["sizes"]["large"];
+    }
+    elseif(has_post_thumbnail()){
         $default_img = get_the_post_thumbnail_url(null, "full");
     }
 ?>

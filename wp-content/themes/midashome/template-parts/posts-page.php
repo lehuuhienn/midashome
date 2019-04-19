@@ -60,15 +60,15 @@
         ?>
         <?php if($paging): ?>
         <div class="page mt-3">
-            <?php for($i=count($paging)-1; $i>-1; $i--): ?>
-                <?php echo $paging[$i]; ?>
-            <?php endfor; ?>
+            <?php foreach($paging as $p): ?>
+                <?php echo $p; ?>
+            <?php endforeach; ?>
         </div>
         <?php endif; ?>
     </div>
     <!-- End about us -->
     <?php else: ?>
-        <h3 class="pt-5 text-center">Chưa có tin tức nào được đăng.</h3>
+        <h3 class="pt-5 pb-5 text-center">Chưa có tin tức nào được đăng.</h3>
     <?php endif; ?>
     
 </div>

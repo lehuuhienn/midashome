@@ -337,9 +337,14 @@ h2 {
 .thumbnail {
     border: 2px solid #770000;
 }
+.page {
+    text-align: right;
+}
+.page a {
+    display: inline-block;
+}
 .btn-page {
     margin-left: 0.5rem;
-    float: right;
     background-color: #770000;
     border: 0;
     color: #FFF;
