@@ -233,13 +233,15 @@ function themecustom_scripts() {
 	wp_enqueue_style( 'themecustom-frontend-css-bootstrap3', $fe ."vendor/jquery/bootstrap.min.css" );
 	wp_enqueue_style( 'themecustom-frontend-css-font-awesome', $fe . "vendor/font-awesome/css/font-awesome.css" );
 	wp_enqueue_style( 'themecustom-frontend-css-bootstrap4', $fe . "vendor/bootstrap/css/bootstrap.min.css" );
+	wp_enqueue_style( 'themecustom-frontend-css-jssocials', $fe . "vendor/jsSocial/jssocials.css" );
 	wp_enqueue_style( 'themecustom-frontend-css-style', $fe . "css/style.css" );
 
 	// JS
 	wp_enqueue_script( 'themecustom-frontend-js-bootstrap3', $fe . 'vendor/bootstrap/js/bootstrap.bundle.min.js', array( 'jquery' ), null, true);
-	// wp_enqueue_script( 'themecustom-frontend-js-bootstrap4', $fe . 'vendor/jquery/bootstrap.min.js', array( 'jquery' ), null, true);
+	wp_enqueue_script( 'themecustom-frontend-js-bootstrap4', $fe . 'vendor/jsSocial/jssocials.min.js', array( 'jquery' ), null, true);
 	wp_enqueue_script( 'themecustom-frontend-js-slick', $fe . 'vendor/slick/slick.min.js', array( 'jquery' ), null, true);
 	wp_enqueue_script( 'themecustom-frontend-js-main', $fe . 'js/main.js', array( 'jquery' ), null, true);
+	wp_enqueue_script( 'themecustom-frontend-js-jssocials', $fe . 'js/custom.js', array( 'jquery' ), null, true);
 }
 add_action( 'wp_enqueue_scripts', 'themecustom_scripts' );
 

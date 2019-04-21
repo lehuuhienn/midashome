@@ -357,6 +357,12 @@ h2 {
     text-align: left;
     color: #fff;
 }
+.url-map a {
+    color: #fff;
+}
+.url-map a:hover {
+    color: #ff5353;
+}
 .icon-home {
     font-size: 20px;
     padding-right: 1rem;

@@ -23,6 +23,7 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="profile" href="https://gmpg.org/xfn/11" />
         <link rel="icon" href="<?php the_frontend(); ?>img/icons/logo.ico">
+        <link rel="app-themecustom" data-url="<?php the_frontend(); ?>" >
 
         <script>window.jQuery || document.write('<script src="<?php the_frontend(); ?>vendor/jquery/jquery.1.12.4.min.js"><\/script>')</script>
         <?php wp_head(); ?>
