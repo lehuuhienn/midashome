@@ -337,10 +337,10 @@ h2 {
 .thumbnail {
     border: 2px solid #770000;
 }
-.page {
+.paged {
     text-align: right;
 }
-.page a {
+.paged a {
     display: inline-block;
 }
 .btn-page {

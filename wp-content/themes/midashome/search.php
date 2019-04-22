@@ -10,6 +10,8 @@
  */
 
 get_header();
+
+echo "ABC";
 ?>
 
 	<section id="primary" class="content-area">

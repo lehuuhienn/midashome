@@ -1,6 +1,11 @@
 <?php
 
-$gallery_image = get_field("gallery_image");
+$gallery_image     = get_field("gallery_image");
+$chu_dau_tu        = get_field("chu_dau_tu");
+$dia_diem_xay_dung = get_field("dia_diem_xay_dung");
+$nam_thi_cong      = get_field("nam_thi_cong");
+$kien_truc_su      = get_field("kien_truc_su");
+$phong_cach        = get_field("phong_cach");
 
 ?>
         <?php get_template_part( 'template-parts/block/banner'); ?>
@@ -65,65 +70,60 @@ $gallery_image = get_field("gallery_image");
                     </p>
                     <div class="row">
                         <div class="col">
+                            <?php if($chu_dau_tu): ?>
                             <p class="btn-detail">
-                                <i class="fa fa-user-circle-o pr-2"></i><a
-                                    class="hidden-sm">Chủ đầu tư: Ông bà
-                                    Oanh Phong</a>
+                                <i class="fa fa-user-circle-o pr-2"></i>
+                                <span><?php _e("Chủ đầu tư:", "themecustom");?> <?php echo $chu_dau_tu; ?></span>
                             </p>
+                            <?php endif; ?>
+                            <?php if($dia_diem_xay_dung): ?>
                             <p class="btn-detail">
-                                <i class="fa fa-location-arrow pr-2"></i><a
-                                    class="hidden-sm">Địa điểm xây dựng: Tân
-                                    Thành</a>
+                                <i class="fa fa-location-arrow pr-2"></i>
+                                <span><?php _e("Địa điểm xây dựng:", "themecustom");?> <?php echo $dia_diem_xay_dung; ?></a>
                             </p>
+                            <?php endif; ?>
+                            <?php if($phong_cach): ?>
                             <p class="btn-detail">
-                                <i class="fa fa-home pr-2"></i><a
-                                    class="hidden-sm">Phong cách: Tân cổ
-                                    điển</a>
+                                <i class="fa fa-home pr-2"></i>
+                                <span ><?php _e("Phong cách:", "themecustom");?> 
+                                    <?php $p = get_term_by('id', $phong_cach, "house_tag"); ?>
+                                    <a href="<?php echo get_term_link($p); ?>"><?php echo $p->name; ?></a>
+                                </span>
                             </p>
+                            <?php endif; ?>
+                            <?php if($kien_truc_su): ?>
                             <p class="btn-detail">
-                                <i class="fa fa-users pr-2"></i><a
-                                    class="hidden-sm">Kiến trúc sư:
-                                    Midashome</a>
+                                <i class="fa fa-users pr-2"></i>
+                                <span><?php _e("Kiến trúc sư:", "themecustom");?> <?php echo $kien_truc_su; ?></span>
                             </p>
+                            <?php endif; ?>
+                            <?php if($nam_thi_cong): ?>
                             <p class="btn-detail">
-                                <i class="fa fa-clock-o pr-2"></i><a
-                                    class="hidden-sm">Năm thi công: 2016</a>
+                                <i class="fa fa-clock-o pr-2"></i>
+                                <span><?php _e("Năm thi công:", "themecustom");?> <?php echo $nam_thi_cong; ?></span>
                             </p>
+                            <?php endif; ?>
                         </div>
                         <div class="col">
-                            <p class="btn-detail">
-                                <i class="fa fa-user-circle-o pr-2"></i><a
-                                    class="hidden-sm">Chủ đầu tư: Ông bà
-                                    Oanh Phong</a>
-                            </p>
-                            <p class="btn-detail">
-                                <i class="fa fa-location-arrow pr-2"></i><a
-                                    class="hidden-sm">Địa điểm xây dựng: Tân
-                                    Thành</a>
-                            </p>
-                            <p class="btn-detail">
-                                <i class="fa fa-home pr-2"></i><a
-                                    class="hidden-sm">Phong cách: Tân cổ
-                                    điển</a>
-                            </p>
-                            <p class="btn-detail">
-                                <i class="fa fa-users pr-2"></i><a
-                                    class="hidden-sm">Kiến trúc sư:
-                                    Midashome</a>
-                            </p>
-                            <p class="btn-detail">
-                                <i class="fa fa-clock-o pr-2"></i><a
-                                    class="hidden-sm">Năm thi công: 2016</a>
-                            </p>
+                           
                         </div>
                     </div>
-                    <div class="row mt-2">
+                    <div class="mt-2">
                         <div class="w-100"><button class="btn-search" style="width: 100px; height: 30px;"> <i class="fa fa-tag pr-2" style="color:#fff"></i>TAG</button></div>
-                        <div class="mt-1"><button class="btn-tag">Biệt thự cổ điển</button><button class="btn-tag">Biệt thự cổ</button><button class="btn-tag">Mẫu biệt thự 3 tầng</button><button class="btn-tag">Biệt thự cổ điển 1</button><button class="btn-tag">Biệt thự cổ điển 2</button></div>
-                        <div class="w-100"><button class="btn-search mt-2" style="width: 250px; height: 30px;">GỬI YÊU CẦU TƯ VẤN</button></div>
-                        <input type="text" class="input-contact" placeholder="Họ và tên"><input type="text" class="input-contact" placeholder="Email">
-                        <textarea class="text-are-detail" name="" id="" cols="300" rows="3"></textarea>
-                        <div><button class="btn-search btn-send mt-2">Gửi yêu cầu</button></div>
+                        <div class="mt-1">
+                            <?php if($house_tags = wp_get_post_terms( $post->ID, "house_tag", array('orderby' => 'name', 'order' => 'ASC'))): ?>
+                                <?php foreach($house_tags as $ht): ?>
+                                    <a href="<?php echo get_term_link($ht); ?>"><button class="btn-tag"><?php echo $ht->name;?></button></a>
+                                <?php endforeach; ?>
+                            <?php endif;?>
+                        </div>
+                        
+                        <div class="request-form pt-4 d-none">
+                            <div class="w-100"><button class="btn-search mt-2" style="width: 250px; height: 30px;">GỬI YÊU CẦU TƯ VẤN</button></div>
+                            <input type="text" class="input-contact" placeholder="Họ và tên"><input type="text" class="input-contact" placeholder="Email">
+                            <textarea class="text-are-detail" name="" style="width:100%" rows="3"></textarea>
+                            <div style="position: relative"><button class="btn-search btn-send mt-2">Gửi yêu cầu</button></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,13 +133,11 @@ $gallery_image = get_field("gallery_image");
                 <div class="red-line"></div>
                 <button class="button-midas">MÔ TẢ CHI TIẾT</button>
                 <div class="detail mt-2">
-                    Biệt thự singapore phong cách hiện đại ở Đồng Hới- Quảng Bình thiết kế theo phong cách hiện đại vô cùng bắt mắt. Đây là sự lựa chọn vô cùng khác biệt của anh Minh Nhật một chủ đầu tư trẻ tuổi. Từng đi du học Singapore – quốc đảo sư tử một thời gian dài về anh rất yêu thích phong cách hiện đại – đẹp – đơn giản – tiện nghi. Đồng thời xen lẫn vào đó là những mảng xanh bắt mắt là ngôi nhà anh rất ấn tượng. Biệt thự singapore phong cách hiện đại là mẫu nhà mơ ước của anh. Và đề bài đặt ra cho đội ngũ kiến trúc sư của chúng tôi chính là Thiết kế một mẫu biệt thự hiện đại theo phong cách Singapore ở Quảng Bình quê hương anh Minh Nhật.
-                </div><div class="detail-view mt-2">
-                    Biệt thự singapore phong cách hiện đại ở Đồng Hới- Quảng Bình thiết kế theo phong cách hiện đại vô cùng bắt mắt. Đây là sự lựa chọn vô cùng khác biệt của anh Minh Nhật một chủ đầu tư trẻ tuổi. Từng đi du học Singapore – quốc đảo sư tử một thời gian dài về anh rất yêu thích phong cách hiện đại – đẹp – đơn giản – tiện nghi. Đồng thời xen lẫn vào đó là những mảng xanh bắt mắt là ngôi nhà anh rất ấn tượng. Biệt thự singapore phong cách hiện đại là mẫu nhà mơ ước của anh. Và đề bài đặt ra cho đội ngũ kiến trúc sư của chúng tôi chính là Thiết kế một mẫu biệt thự hiện đại theo phong cách Singapore ở Quảng Bình quê hương anh Minh Nhật.
-                    Biệt thự singapore phong cách hiện đại ở Đồng Hới- Quảng Bình thiết kế theo phong cách hiện đại vô cùng bắt mắt. Đây là sự lựa chọn vô cùng khác biệt của anh Minh Nhật một chủ đầu tư trẻ tuổi. Từng đi du học Singapore – quốc đảo sư tử một thời gian dài về anh rất yêu thích phong cách hiện đại – đẹp – đơn giản – tiện nghi. Đồng thời xen lẫn vào đó là những mảng xanh bắt mắt là ngôi nhà anh rất ấn tượng. Biệt thự singapore phong cách hiện đại là mẫu nhà mơ ước của anh. Và đề bài đặt ra cho đội ngũ kiến trúc sư của chúng tôi chính là Thiết kế một mẫu biệt thự hiện đại theo phong cách Singapore ở Quảng Bình quê hương anh Minh Nhật.
-                    Biệt thự singapore phong cách hiện đại ở Đồng Hới- Quảng Bình thiết kế theo phong cách hiện đại vô cùng bắt mắt. Đây là sự lựa chọn vô cùng khác biệt của anh Minh Nhật một chủ đầu tư trẻ tuổi. Từng đi du học Singapore – quốc đảo sư tử một thời gian dài về anh rất yêu thích phong cách hiện đại – đẹp – đơn giản – tiện nghi. Đồng thời xen lẫn vào đó là những mảng xanh bắt mắt là ngôi nhà anh rất ấn tượng. Biệt thự singapore phong cách hiện đại là mẫu nhà mơ ước của anh. Và đề bài đặt ra cho đội ngũ kiến trúc sư của chúng tôi chính là Thiết kế một mẫu biệt thự hiện đại theo phong cách Singapore ở Quảng Bình quê hương anh Minh Nhật.
-                    Biệt thự singapore phong cách hiện đại ở Đồng Hới- Quảng Bình thiết kế theo phong cách hiện đại vô cùng bắt mắt. Đây là sự lựa chọn vô cùng khác biệt của anh Minh Nhật một chủ đầu tư trẻ tuổi. Từng đi du học Singapore – quốc đảo sư tử một thời gian dài về anh rất yêu thích phong cách hiện đại – đẹp – đơn giản – tiện nghi. Đồng thời xen lẫn vào đó là những mảng xanh bắt mắt là ngôi nhà anh rất ấn tượng. Biệt thự singapore phong cách hiện đại là mẫu nhà mơ ước của anh. Và đề bài đặt ra cho đội ngũ kiến trúc sư của chúng tôi chính là Thiết kế một mẫu biệt thự hiện đại theo phong cách Singapore ở Quảng Bình quê hương anh Minh Nhật.
-                    Biệt thự singapore phong cách hiện đại ở Đồng Hới- Quảng Bình thiết kế theo phong cách hiện đại vô cùng bắt mắt. Đây là sự lựa chọn vô cùng khác biệt của anh Minh Nhật một chủ đầu tư trẻ tuổi. Từng đi du học Singapore – quốc đảo sư tử một thời gian dài về anh rất yêu thích phong cách hiện đại – đẹp – đơn giản – tiện nghi. Đồng thời xen lẫn vào đó là những mảng xanh bắt mắt là ngôi nhà anh rất ấn tượng. Biệt thự singapore phong cách hiện đại là mẫu nhà mơ ước của anh. Và đề bài đặt ra cho đội ngũ kiến trúc sư của chúng tôi chính là Thiết kế một mẫu biệt thự hiện đại theo phong cách Singapore ở Quảng Bình quê hương anh Minh Nhật.
+                    <?php echo $post->post_excerpt?$post->post_excerpt:wp_trim_words($post->post_content, 188, "..."); ?>
+                </div>
+                <div class="detail-view mt-2">
+                    <?php the_content(); ?>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="text-center">
                     <button class="btn-show btn-tag" onclick="viewDetail(1)">Hiển thị chi tiết <i class="fa fa-arrow-down"></i></button>
@@ -149,7 +147,7 @@ $gallery_image = get_field("gallery_image");
             <!-- END WORK -->
 
             <!-- comments -->
-            <div class="about">
+            <div class="about d-none">
                 <div class="red-line"></div>
                 <button class="button-midas">BÌNH LUẬN</button>
                 <div class="row mt-3">
@@ -178,7 +176,7 @@ $gallery_image = get_field("gallery_image");
             <!-- END comment -->
 
             <!-- START CLICKED -->
-            <div class="slide-home mt-5">
+            <div class="slide-home mt-5 d-none">
                 <div class="red-line"></div>
                 <button class="button-midas">CÔNG TRÌNH VỪA XEM</button>
                 <div class="row align-items-center mt-20">

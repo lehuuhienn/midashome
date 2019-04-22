@@ -104,11 +104,11 @@ a img.aligncenter {
     max-width: 100%;
     height: auto;
 }
-.page .page-numbers button {
+.paged .page-numbers button {
     outline: 0 !important;
     box-shadow: none !important;
 }
-.page .page-numbers.current {
+.paged .page-numbers.current {
     pointer-events: none;
     opacity: 0.5;
 }

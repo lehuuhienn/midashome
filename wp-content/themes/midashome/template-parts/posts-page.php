@@ -59,7 +59,7 @@
             $paging = paginate_links( $args );
         ?>
         <?php if($paging): ?>
-        <div class="page mt-3">
+        <div class="page paged mt-3">
             <?php foreach($paging as $p): ?>
                 <?php echo $p; ?>
             <?php endforeach; ?>
