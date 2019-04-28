@@ -118,11 +118,11 @@ $phong_cach        = get_field("phong_cach");
                             <?php endif;?>
                         </div>
                         
-                        <div class="request-form pt-4 d-none">
+                        <div class="request-form pt-4 ">
                             <div class="w-100"><button class="btn-search mt-2" style="width: 250px; height: 30px;">GỬI YÊU CẦU TƯ VẤN</button></div>
-                            <input type="text" class="input-contact" placeholder="Họ và tên"><input type="text" class="input-contact" placeholder="Email">
-                            <textarea class="text-are-detail" name="" style="width:100%" rows="3"></textarea>
-                            <div style="position: relative"><button class="btn-search btn-send mt-2">Gửi yêu cầu</button></div>
+                            <div class="form-gui-yeu">
+                                <?php echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true" tabindex="49"]'); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@ $phong_cach        = get_field("phong_cach");
             <!-- END WORK -->
 
             <!-- comments -->
-            <div class="about d-none">
+            <div class="about ">
                 <div class="red-line"></div>
                 <button class="button-midas">BÌNH LUẬN</button>
                 <div class="row mt-3">
@@ -176,7 +176,7 @@ $phong_cach        = get_field("phong_cach");
             <!-- END comment -->
 
             <!-- START CLICKED -->
-            <div class="slide-home mt-5 d-none">
+            <div class="slide-home mt-5 ">
                 <div class="red-line"></div>
                 <button class="button-midas">CÔNG TRÌNH VỪA XEM</button>
                 <div class="row align-items-center mt-20">

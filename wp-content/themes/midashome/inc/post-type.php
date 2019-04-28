@@ -27,7 +27,7 @@ if ( !function_exists('create_post_types')) {
 				'query_var'                => true,
 				'exclude_from_search'      => true,
 				'rewrite'                  => array( 'slug' => __('cong-trinh', 'themecustom'), 'with_front' => false),
-				'supports'                 => array( 'title', 'excerpt', 'page-attributes', 'thumbnail', "editor" ),
+				'supports'                 => array( 'title', 'excerpt', 'page-attributes', 'thumbnail', "editor", 'comments','revisions' ),
 			)
 		);
 

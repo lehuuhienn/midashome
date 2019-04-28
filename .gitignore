@@ -76,6 +76,7 @@ wp-content/mysql.sql
 /xmlrpc.php
 /wp-admin
 /wp-includes
+note.txt
 
 # Themes 
 wp-content/themes/*
