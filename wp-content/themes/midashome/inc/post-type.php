@@ -73,6 +73,8 @@ if ( !function_exists('create_post_types')) {
 			'rewrite' => array( 'slug' => __('tag-nha', 'themecustom'), 'with_front' => false ),
 		));
 
+		add_post_type_support( 'page', 'excerpt' );
+
 		flush_rewrite_rules( false );
 	}	
 }
