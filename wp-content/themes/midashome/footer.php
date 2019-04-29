@@ -12,6 +12,11 @@
  */
 
 ?>      
+        <?php
+            $link_youtube = get_field("link_youtube", "options");
+            $you_need_find = get_field("you_need_find", "options");
+        ?>
+        
         <section class="video-section">
             <div class="container">
                 <!-- VIDEO -->
@@ -20,110 +25,76 @@
                     <button class="button-midas">VIDEO</button>
                     <div class="row mt-3 text-center">
                         <div class="col">
-                            <iframe class="videos" width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                            <?php echo $link_youtube; ?>
                         </div>
                         <div class="col">
                             <div class="row">
                             <h5 class="title-list">BẠN CẦN TÌM</h5>
-                            <div class="col text-left">
-                                <div class="pt-3"><a href="#">Mẫu nhà cấp 4</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự sân vườn</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự 2 tầng </a></div>
-                                <div class="pt-2"><a href="#">Mẫu thiết kế biệt thự đẹp</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu văn phòng-khách sạn</a></div>
-                                <div class="pt-2"> <a href="#">Biệt thự cổ điển đẹp</a></div> 
-                                <div class="pt-2"> <a href="#">Thiết kế nhà thương mại</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu biệt thự sang trọng</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu thiết kế nhà số</a></div>
-                            </div>
-                            <div class="col text-left">
-                                <div class="pt-3"><a href="#">Mẫu nhà cấp 4</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự sân vườn</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự 2 tầng </a></div>
-                                <div class="pt-2"><a href="#">Mẫu thiết kế biệt thự đẹp</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu văn phòng-khách sạn</a></div>
-                                <div class="pt-2"> <a href="#">Biệt thự cổ điển đẹp</a></div> 
-                                <div class="pt-2"> <a href="#">Thiết kế nhà thương mại</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu biệt thự sang trọng</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu thiết kế nhà số</a></div>                       
-                            </div>
-                            <div class="col text-left">    
-                                <div class="pt-3"><a href="#">Mẫu nhà cấp 4</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự sân vườn</a></div>
-                                <div class="pt-2"><a href="#">Biệt thự 2 tầng </a></div>
-                                <div class="pt-2"><a href="#">Mẫu thiết kế biệt thự đẹp</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu văn phòng-khách sạn</a></div>
-                                <div class="pt-2"> <a href="#">Biệt thự cổ điển đẹp</a></div> 
-                                <div class="pt-2"> <a href="#">Thiết kế nhà thương mại</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu biệt thự sang trọng</a></div>
-                                <div class="pt-2"> <a href="#">Mẫu thiết kế nhà số</a></div>
-                            </div>
-                        </div>
+                            <?php if($you_need_find): ?>
+                                <?php $max_item_per_col = (int)(count($you_need_find)/3); ?>
+                                <?php foreach($you_need_find as $key => $link): ?>
+                                    <?php $term = get_term_by('id', $link, 'house_tag' ); ?>
+                                    <?php if($key%$max_item_per_col==0): ?>
+
+                                    <?php echo $key>0?'</div>':''; ?>
+
+                                    <div class="col text-left">
+                                    <?php endif; ?>
+
+                                        <div class="pt-3"><a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a></div>
+                                    <?php echo $key>=count($you_need_find)-1?'</div>':''; ?>
+                                <?php endforeach; ?>
+                            <?php endif;?>
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <footer class="py-3 bg-footer mt-3">
+        <?php $link_cac_menu_con_repeat = get_field('link_cac_menu_con_repeat', "options"); ?>
+        <?php if($link_cac_menu_con_repeat): ?>
+
+        <section class="py-3 bg-footer mt-3" id="link-lien-ket">
             <div class="container">
                 <div class="row">
-                    <div class="col">
-                        <h5>BIỆT THỰ CAO CẤP</h5>
-                        <div class="red-line-footer"></div>
-                        <div class="pt-3"><a href="#">Biệt thự tân cổ điển</a></div>
-                        <div class="pt-2"><a href="#">Biệt thự cổ điển</a></div>
-                        <div class="pt-2"><a href="#">Biệt thự hiện đại</a></div>
-                    </div>
-                    <div class="col">
-                        <h5>KIẾN TRÚC NHÀ ĐẸP</h5>
-                        <div class="red-line-footer"></div>
-                        <div class="pt-3"><a href="#">Biệt thự tân cổ điển</a></div>
-                        <div class="pt-2"><a href="#">Biệt thự cổ điển</a></div>
-                        <div class="pt-2"><a href="#">Biệt thự hiện đại</a></div>
-                    </div>
-                    <div class="col">
-                        <h5>TIỂU CẢNH SÂN VƯỜN</h5>
-                        <div class="red-line-footer"></div>
-                        <div class="pt-3"><a href="#">Biệt thự tân cổ điển</a></div>
-                        <div class="pt-2"><a href="#">Biệt thự cổ điển</a></div>
-                        <div class="pt-2"><a href="#">Biệt thự hiện đại</a></div>
-                    </div>
-                    <div class="col">
-                        <h5>THI CÔNG XÂY DỰNG</h5>
-                        <div class="red-line-footer"></div>
-                        <div class="pt-3"><a href="#">Biệt thự tân cổ điển</a></div>
-                        <div class="pt-2"><a href="#">Biệt thự cổ điển</a></div>
-                        <div class="pt-2"><a href="#">Biệt thự hiện đại</a></div>
-                    </div>
+                    <?php foreach ($link_cac_menu_con_repeat as $x => $item): ?>
+
+                        <div class="col">
+                            <h5><?php echo $item['title']; ?></h5>
+                            <div class="red-line-footer"></div>
+                            <?php foreach ($item['link_page'] as $z => $y): ?>
+                                <?php $term = get_term_by('id', $y, 'house_tag'); ?>
+
+                                <div class="<?php echo $z>0?'pt-2':'pt-3'; ?>"><a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a></div>
+                            <?php endforeach; ?>
+
+                        </div>
+                    <?php endforeach; ?>
+
                 </div>
             </div>
-
-        </footer>
+        </section>
+        <?php endif; ?>
 
         <!-- Footer -->
         <footer class="py-3 bg-footer-last">
             <div class="container">
                 <div class="row">
                     <div class="col-6 border-color">
-                        <h4>CÔNG TY CỔ PHẦN KIẾN TRÚC MIDASHOME VIỆT NAM</h4>
-                        <p>Địa chỉ: P2505 Tòa nhà LICOGI 13 - 164 Đường Khuất
-                            Duy Tiến</p>
-                        <p>Điện thoại: 02462533794 Hotline: 0975 678 930 - 0818
-                            818 999</p>
-                        <p>Email: lienhe@midashome.vn</p>
+                        <h4><?php the_field("company_name", "options"); ?></h4>
+                        <p>Địa chỉ: <?php the_field("company_address", "options"); ?></p>
+                        <p>Điện thoại: <?php the_field("company_phone", "options"); ?></p>
+                        <p>Email: <?php the_field("company_email", "options"); ?></p>
                     </div>
                     <div class="col border-color">
-                        <h4>THỐNG KÊ TRUY CẬP</h4>
+                        <h4><?php the_field("text_thong_ke_truy_cap", "options"); ?></h4>
                         <div class="row">
                             <div class="col">
-                                <div><div class="fa fa-user pr-1"></div>Số người
-                                    online:</div>
-                                <div><div class="fa fa-user pr-1"></div>Hôm nay:</div>
-                                <div><div class="fa fa-user pr-1"></div>Tuần
-                                    này:</div>
-                                <div><div class="fa fa-user pr-1"></div>Tổng
-                                    truy cập:</div>
+                                <div><i class="fa fa-user pr-1"></i> Số người online:</div>
+                                <div><i class="fa fa-user pr-1"></i> Hôm nay:</div>
+                                <div><i class="fa fa-user pr-1"></i> Tuần này:</div>
+                                <div><i class="fa fa-user pr-1"></i> Tổng truy cập:</div>
                             </div>
                             <div class="col">
                                 <div>15</div>
@@ -135,16 +106,11 @@
 
                     </div>
                     <div class="col">
-                        <h4>ĐĂNG KÝ NHẬN BẢN TIN</h4>
-                        <div>Chúng tôi sẽ cung cấp cho các bạn những mẫu nhà đẹp
-                            hàng tuần và các chương trình khuyến mãi đặc biết
-                            của chúng tôi </div>
-                        <input type="text" class="input-footer mt-1"
-                            placeholder="Họ và tên">
-                        <input type="text" class="input-footer mt-1"
-                            placeholder="Email">
-                        <div><button class="button-midas btn-footer mt-1">Đăng
-                                ký</button></div>
+                        <h4><?php the_field("text_dang_ky_ban_tin", "options"); ?></h4>
+                        <div><?php the_field("text_intro_ban_tin", "options"); ?></div>
+                        <div class="form-ban-tin form-gui-yeu">
+                            <?php echo do_shortcode(get_field("form_ban_tin", "options")); ?>
+                        </div>
                     </div>
 
                 </div>

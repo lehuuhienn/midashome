@@ -41,11 +41,13 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
             //     ));
             // }
         ?>
-
+        <?php $company_name = get_field("company_name", "options"); ?>
+        <?php $company_logo = get_field("company_logo", "options"); ?>
+        <?php $company_logo = $company_logo?$company_logo['sizes']['medium']:get_frontend()."img/Official Logo.png" ?>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-midas">
             <a class="logo color-white mr-5" href="<?php echo home_url(); ?>">
-                <img height="50px" src="<?php the_frontend(); ?>img/Official Logo.png" alt="">
+                <img height="50px" src="<?php echo $company_logo; ?>" alt="<?php $company_name; ?>">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarNavDropdown"

@@ -174,3 +174,22 @@ FORM GUI YEU CAU
     right: 0;
     width: 110px;
 }
+.form-ban-tin ul {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-ban-tin li {
+    width: 100%;
+    margin: 0;
+}
+.form-ban-tin input:not([type='submit']) {
+    width: 100%;
+    margin-top: 5px;
+}
+.form-ban-tin input[type='submit'] {
+    position: relative;
+    margin-top: 5px;
+}
+.form-ban-tin .gform_footer {
+    text-align: right;
+}
