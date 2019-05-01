@@ -24,7 +24,35 @@ $args = array(
             'terms' => $term,
         )
     ),
+    'meta_query' => array(),
 );
+
+// FILTER
+$so_phong_ngu = isset($_GET['so_phong_ngu'])?$_GET['so_phong_ngu']:'';
+if(strlen($so_phong_ngu)>0 ){
+    $args['meta_query'][] = array(
+        'key'     => 'so_phong_ngu',
+        'value'   =>  esc_sql($_GET['so_phong_ngu']),
+        'compare' => '=',
+    );
+}
+$dien_tich = isset($_GET['dien_tich'])?$_GET['dien_tich']:'';
+if(strlen($dien_tich)>0 ){
+    $args['meta_query'][] = array(
+        'key'     => 'dien_tich',
+        'value'   =>  esc_sql($_GET['dien_tich']),
+        'compare' => '=',
+    );
+}
+$so_tang = isset($_GET['so_tang'])?$_GET['so_tang']:'';
+if(strlen($so_tang)>0 ){
+    $args['meta_query'][] = array(
+        'key'     => 'so_tang',
+        'value'   =>  esc_sql($_GET['so_tang']),
+        'compare' => '=',
+    );
+}
+
 $posts = new WP_Query($args);
 
 $default_img = get_frontend()."img/00gkgm51.png";
@@ -41,97 +69,45 @@ $default_img = get_frontend()."img/00gkgm51.png";
     <!-- About us -->
     <div class="about">
         <div class="red-line"></div>
-        <button class="button-midas"><?php echo $termObject->name; ?></button>
-        <?php if($posts): ?>
-        <div class="row mt-20 pl-3 d-none">
+        <a href="<?php echo get_term_link($termObject); ?>"><button class="button-midas"><?php echo $termObject->name; ?></button></a>
+        <form action="" method="GET" class="row mt-20 pl-3">
             <div class="col">
-                <select class="input-filter mt-3">
+                <select name="so_phong_ngu" class="input-filter mt-3">
                     <option value="">Số phòng ngủ</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                    <?php for($i=1; $i<6; $i++): ?>
+                        <option <?php echo $so_phong_ngu==$i?'selected':''; ?> value="<?php echo $i ?>"><?php echo $i.' phòng' ?></option>
+                    <?php endfor; ?>
                 </select>
             </div>
             <div class="col">
-                    <select class="input-filter mt-3">
-                        <option value="">Diện tích căn hộ</option>
-                        <option value="1">20m</option>
-                        <option value="2">30m</option>
-                        <option value="3">40m</option>
-                    </select>
-                </div>
-                <div class="col">
-                        <select class="input-filter mt-3">
-                            <option value="">Số tầng</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                </div>
-                <div class="col">
-                    <button class="btn-search mt-3">Tìm kiếm</button>
-                </div>
-        </div>
-        <?php else: ?>
-        <h3 class="pt-5 pb-5 text-center">Danh mục này chưa có bài viết.</h3>
-        <?php endif;?>
+                <select name="dien_tich" class="input-filter mt-3">
+                    <option value="">Diện tích căn hộ</option>
+                    <?php for($i=15; $i<55; $i+=5): ?>
+                        <option <?php echo $dien_tich==$i?'selected':''; ?> value="<?php echo $i.'m' ?>"><?php echo $i.'m' ?></option>
+                    <?php endfor; ?>
+                </select>
+            </div>
+            <div class="col">
+                <select name="so_tang" class="input-filter mt-3">
+                    <option value="">Số tầng</option>
+                    <?php for($i=1; $i<6; $i++): ?>
+                        <option <?php echo $so_tang==$i?'selected':''; ?> value="<?php echo $i ?>"><?php echo $i.' tầng' ?></option>
+                    <?php endfor; ?>
+                </select>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn-search mt-3">Tìm kiếm</button>
+            </div>
+        </form>
     </div>
     <!-- End about us -->
 
-    <?php if($posts): ?>
+    <?php if($posts->have_posts()): ?>
         <!-- list product -->
         <div class="row mt-4">
 
             <?php while($posts->have_posts()): $posts->the_post(); ?>
-            <div class="item col-xs-3 col-lg-3">
-                <div class="thumbnail">
-                    <div class="info">
-                        <a href="<?php echo get_permalink(); ?>" class="title-item-product">
-                            <h5><?php the_title();?></h5>
-                        </a>
-                    </div>
-                    <a href="<?php echo get_permalink(); ?>" class="photo pb-3 d-block">
-                        <img src="<?php echo has_post_thumbnail()?get_the_post_thumbnail_url(null,"medium"):$default_img; ?>" class="img-fluid" alt="<?php the_title();?>" />
-                    </a>
-                    <div class="info">
-                        <div class="separator clear-left pl-2">
-                            <p class="btn-add" style="float:left">
-                                <i class="fa fa-calendar pr-2"></i><a
-                                    class="hidden-sm">14/08/2018</a>
-                            </p>
-                            <p class="btn-details">
-                                <i class="fa fa-eye pl-4 pr-2"></i><a
-                                    class="hidden-sm">150</a>
-                            </p>
-                            <p class="btn-detail">
-                                <i class="fa fa-user-circle-o pr-2"></i><a
-                                    class="hidden-sm">Chủ đầu tư: Ông bà
-                                    Oanh Phong</a>
-                            </p>
-                            <p class="btn-detail">
-                                <i class="fa fa-location-arrow pr-2"></i><a
-                                    class="hidden-sm">Địa điểm xây dựng: Tân
-                                    Thành</a>
-                            </p>
-                            <p class="btn-detail">
-                                <i class="fa fa-home pr-2"></i><a
-                                    class="hidden-sm">Phong cách: Tân cổ
-                                    điển</a>
-                            </p>
-                            <p class="btn-detail">
-                                <i class="fa fa-users pr-2"></i><a
-                                    class="hidden-sm">Kiến trúc sư:
-                                    Midashome</a>
-                            </p>
-                            <p class="btn-detail">
-                                <i class="fa fa-clock-o pr-2"></i><a
-                                    class="hidden-sm">Năm thi công: 2016</a>
-                            </p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
+            <?php get_template_part( 'template-parts/block/house'); ?>
             <?php endwhile; wp_reset_postdata(); ?>
 
         </div>
@@ -158,6 +134,9 @@ $default_img = get_frontend()."img/00gkgm51.png";
         <?php endif; ?>
         <!-- end list product -->
 
+    <?php else: ?>
+        <h3 class="pt-5 pb-5 text-center">Danh mục này chưa có bài viết.</h3>
+    
     <?php endif;?>
 </div>
 <!-- /.container -->

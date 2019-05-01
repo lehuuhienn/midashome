@@ -109,7 +109,30 @@ $list_viewed = get_house_viewed();
                             <?php endif; ?>
                         </div>
                         <div class="col">
-                           
+                            <?php if($mat_tien = get_field("mat_tien")): ?>
+                            <p class="btn-detail">
+                                <i class="fa fa-home pr-2"></i>
+                                <span><?php _e("Mặt tiền:", "themecustom");?> <?php echo $mat_tien; ?></span>
+                            </p>
+                            <?php endif; ?>
+                            <?php if($dien_tich = get_field("dien_tich")): ?>
+                            <p class="btn-detail">
+                                <i class="fa fa-home pr-2"></i>
+                                <span><?php _e("Diện tích:", "themecustom");?> <?php echo $dien_tich; ?></span>
+                            </p>
+                            <?php endif; ?>
+                            <?php if($so_phong_ngu = get_field("so_phong_ngu")): ?>
+                            <p class="btn-detail">
+                                <i class="fa fa-home pr-2"></i>
+                                <span><?php _e("Số phòng ngủ:", "themecustom");?> <?php echo $so_phong_ngu; ?></span>
+                            </p>
+                            <?php endif; ?>
+                            <?php if($so_tang = get_field("so_tang")): ?>
+                            <p class="btn-detail">
+                                <i class="fa fa-home pr-2"></i>
+                                <span><?php _e("Số tầng:", "themecustom");?> <?php echo $so_tang; ?></span>
+                            </p>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="mt-2">
