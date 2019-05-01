@@ -24,6 +24,7 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
         <link rel="profile" href="https://gmpg.org/xfn/11" />
         <link rel="icon" href="<?php the_frontend(); ?>img/icons/logo.ico">
         <link rel="app-themecustom" data-url="<?php the_frontend(); ?>" >
+        <link rel="site-themecustom" data-url="<?php echo site_url(); ?>" >
 
         <script>window.jQuery || document.write('<script src="<?php the_frontend(); ?>vendor/jquery/jquery.1.12.4.min.js"><\/script>')</script>
         <?php wp_head(); ?>
@@ -31,16 +32,6 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
     </head>
 
     <body <?php body_class(); ?>>
-
-        <?php
-            // if(has_nav_menu("header")){
-            //     wp_nav_menu(array(
-            //         'theme_location' => 'header',
-            //         'menu_class' => 'menu-top',
-            //         'container' => null,
-            //     ));
-            // }
-        ?>
         <?php $company_name = get_field("company_name", "options"); ?>
         <?php $company_logo = get_field("company_logo", "options"); ?>
         <?php $company_logo = $company_logo?$company_logo['sizes']['medium']:get_frontend()."img/Official Logo.png" ?>
@@ -56,33 +47,35 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <?php if(has_nav_menu("header")): $menus_header = get_menu_items_by_registered_slug("header"); ?>
+                <?php global $post; $thePostID = $post?$post->ID:0; ?>
+
                 <ul class="navbar-nav color-white">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle color-white" href="#"
-                            id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            KIẾN TRÚC
-                        </a>
-                        <div class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="product_1.html">NHÀ
-                                PHỐ BIỆT THỰ</a>
-                            <a class="dropdown-item" href="#">CHUNG CƯ - CĂN HỘ</a>
-                            <a class="dropdown-item" href="#">KHÁCH SẠN - NHÀ
-                                NGHỈ</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link color-white" href="product_1.html">DỰ
-                            TOÁN-BÁO GIÁ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link color-white" href="news.html">TIN TỨC</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link color-white" href="contact.html">LIÊN
-                            HỆ</a>
-                    </li>
+                    <?php foreach($menus_header as $m): ?>
+                        <?php if($m->menu_item_parent!=0){continue;} ?>
+                        <?php
+                            $submenu = array();
+                            foreach($menus_header as $n){
+                                if($n->menu_item_parent==0 || $n->menu_item_parent!=$m->ID){continue;}
+                                $submenu[] = $n;
+                            }
+                            // var_dump($m);
+                        ?>
+
+                        <li class="nav-item <?php echo count($submenu)>0?'dropdown':'';?>">
+                            <a class="nav-link <?php echo $thePostID==$m->object_id?'active':''; ?> text-uppercase color-white <?php echo count($submenu)>0?'dropdown-toggle':'';?>" href="<?php echo $m->url; ?>" <?php echo count($submenu)>0?'data-toggle="dropdown"':'';?>><?php echo $m->title; ?></a>
+                            <?php if(count($submenu)>0): ?>
+
+                                <div class="dropdown-menu">
+                                    <?php foreach($submenu as $su): ?>
+
+                                        <a class="dropdown-item" href="<?php echo $su->url; ?>"><?php echo $su->title; ?></a>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
+                <?php endif; ?>
             </div>
         </nav>

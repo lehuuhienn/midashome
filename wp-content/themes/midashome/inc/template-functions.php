@@ -132,3 +132,23 @@ function themecustom_hsl_hex( $h, $s, $l, $to_hex = true ) {
 
 	return "rgb($r, $g, $b)";
 }
+
+
+add_action( 'wp_ajax_ajaxcomments', 'themecustom_submit_ajax_comment' ); 
+add_action( 'wp_ajax_nopriv_ajaxcomments', 'themecustom_submit_ajax_comment' );
+ 
+function themecustom_submit_ajax_comment(){
+	$data = wp_unslash( $_POST );
+	// wp_send_json($data);
+	$comment = wp_handle_comment_submission($data);
+	if ( is_wp_error( $comment ) ) {
+		$error_data = intval( $comment->get_error_data() );
+		if ( ! empty( $error_data ) ) {
+			wp_die( '<p>' . $comment->get_error_message() . '</p>', __( 'Comment Submission Failure' ), array( 'response' => $error_data, 'back_link' => true ) );
+		} else {
+			wp_die( 'Unknown error', $error_data  );
+		}
+	}
+	wp_send_json(array('msg'=> "The comment proccess is success"));
+	die();
+}

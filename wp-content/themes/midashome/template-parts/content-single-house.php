@@ -7,6 +7,10 @@ $nam_thi_cong      = get_field("nam_thi_cong");
 $kien_truc_su      = get_field("kien_truc_su");
 $phong_cach        = get_field("phong_cach");
 
+// Lưu công trình vừa xem
+set_house_viewed($post->ID);
+$list_viewed = get_house_viewed();
+
 ?>
         <?php get_template_part( 'template-parts/block/banner'); ?>
 
@@ -150,30 +154,34 @@ $phong_cach        = get_field("phong_cach");
             <div class="about ">
                 <div class="red-line"></div>
                 <button class="button-midas">BÌNH LUẬN</button>
-                <div class="row mt-3">
-                    <div class="row profile">
-                        <div class="col-sm-3"><img src="<?php the_frontend(); ?>img/jm11use2.png" alt=""></div>
-                        <div class="col-sm-9">
-                            <b>Nguyễn Cẩm Vân</b>
-                            <p>05/06/2019</p>
-                        </div>
-                        
-                    </div>
-                    <div class="row comment ml-5">Biệt thự singapore phong cách hiện đại</div>
-                    <div class="row profile mt-2">
-                            <div class="col-sm-3"><img src="<?php the_frontend(); ?>img/nb77f2kw.png" alt=""></div>
+                <ul class="commentlist">
+                    <?php $comments = get_comments($args = array( 'post_id' => $post->ID, 'status'=>'approve', 'paged' => -1)); ?>
+                </ul>
+                <div class="row mt-1">
+                    <?php foreach ( $comments as $cmt ): ?>
+
+                        <div class="row profile mt-2">
+                            <div class="col-sm-3"><img src="<?php echo get_avatar_url($cmt->comment_author_email, array('size'=>40)); ?>" alt=""></div>
                             <div class="col-sm-9">
-                                <b>Trần Huỳnh Thy</b>
-                                <p>05/06/2019</p>
+                                <b>&nbsp; <?php echo $cmt->comment_author; ?></b>
+                                <p>&nbsp; <?php echo (new DateTime($cmt->comment_date))->format("d/m/Y"); ?></p>
                             </div>
-                    </div>
-                    <div class="row comment ml-5">Đồng thời xen lẫn vào đó là những mảng xanh bắt mắt là ngôi nhà anh rất ấn tượng. Biệt thự singapore phong cách hiện đại là mẫu nhà mơ ước của anh. Và đề bài đặt ra cho đội ngũ kiến trúc sư của chúng tôi chính là Thiết kế một mẫu biệt thự hiện đại theo phong cách Singapore ở Quảng Bình quê hương anh Minh Nhật.</div>
-                    <input type="text" class="input-contact" placeholder="Họ và tên"><input type="text" class="input-contact" placeholder="Email">
-                    <textarea class="text-are-detail" name="" id="" cols="300" rows="3"></textarea>
-                    <div><button class="btn-search btn-send mt-2">Bình luận</button></div>
+                        </div>
+                        <div class="row comment ml-5"><?php echo $cmt->comment_content; ?></div>
+                    <?php endforeach; ?>
+                    <form action="" method="POST" class="comment-form" id="comment-form-ajax">
+                        <input type="hidden" name="comment_post_ID" value="<?php echo $post->ID; ?>">
+                        <input name="author" type="text" class="input-contact" placeholder="Họ và tên" required data-msg-required="Họ và tên không để trống">
+                        <input name="email" type="email" class="input-contact" placeholder="Email" required data-msg-required="Email không để trống" required data-msg-email="Email không đúng định dạng">
+                        <textarea class="text-are-detail" name="comment" id="" cols="300" rows="3" required data-msg-required="Nội dung nhận xét không để trống"></textarea>
+                        <div><button type="submit" class="btn-search btn-send mt-2">Bình luận</button></div>
+                    </form>
                 </div>
             </div>
             <!-- END comment -->
+
+
+            <?php if($list_viewed): ?>
 
             <!-- START CLICKED -->
             <div class="slide-home mt-5 ">
@@ -181,346 +189,37 @@ $phong_cach        = get_field("phong_cach");
                 <button class="button-midas">CÔNG TRÌNH VỪA XEM</button>
                 <div class="row align-items-center mt-20">
                     <div class="controls float-xs-right hidden-xs w-100">
-                        <a class="right fa fa-chevron-right btn btn-slide" href="#carousel-example7" data-slide="next"></a>
-                        <a class="left fa fa-chevron-left btn btn btn-slide" href="#carousel-example7" data-slide="prev"></a>
-    
+                        <a class="right fa fa-chevron-right btn btn-slide" href="#carousel-listviewed" data-slide="next"></a>
+                        <a class="left fa fa-chevron-left btn btn btn-slide" href="#carousel-listviewed" data-slide="prev"></a>
                     </div>
-                    <div id="carousel-example7" class="carousel slide hidden-xs" data-ride="carousel">
+                    <div id="carousel-listviewed" class="carousel slide hidden-xs" data-ride="carousel">
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <div class="col-item">
-                                            <div class="info">
-                                                <a href="#" class="title-item-product">
-                                                    <h5>Mẫu thiết kế biệt thự 3 tầng cao cấp ở Đảo Phú Quốc- Kiên Giang BT1699</h5>
-                                                </a>
-                                            </div>
-    
-                                            <a href="#" class="photo">
-                                                <img src="<?php the_frontend(); ?>img/00gkgm51.png" class="img-fluid" alt="a" />
-                                            </a>
-                                            <div class="info">
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-calendar"></i><a class="hidden-sm">14/08/2018</a>
-                                                    </p>
-                                                    <p class="btn-details">
-                                                        <i class="fa fa-eye"></i><a class="hidden-sm">150</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-user-circle-o"></i><a class="hidden-sm">Chủ đầu tư: Ông bà Oanh Phong</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-location-arrow"></i><a class="hidden-sm">Địa điểm xây dựng: Tân Thành</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-home"></i><a class="hidden-sm">Phong cách: Tân cổ điển</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-users"></i><a class="hidden-sm">Kiến trúc sư: Midashome</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-clock-o"></i><a class="hidden-sm">Năm thi công: 2016</a>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="col-item">
-                                            <div class="info">
-                                                <a href="#" class="title-item-product">
-                                                    <h5>Mẫu thiết kế biệt thự 3 tầng cao cấp ở Đảo Phú Quốc- Kiên Giang BT1699</h5>
-                                                </a>
-                                            </div>
-    
-                                            <a href="#" class="photo">
-                                                <img src="<?php the_frontend(); ?>img/00gkgm51.png" class="img-fluid" alt="a" />
-                                            </a>
-                                            <div class="info">
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-calendar"></i><a class="hidden-sm">14/08/2018</a>
-                                                    </p>
-                                                    <p class="btn-details">
-                                                        <i class="fa fa-eye"></i><a class="hidden-sm">150</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-user-circle-o"></i><a class="hidden-sm">Chủ đầu tư: Ông bà Oanh Phong</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-location-arrow"></i><a class="hidden-sm">Địa điểm xây dựng: Tân Thành</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-home"></i><a class="hidden-sm">Phong cách: Tân cổ điển</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-users"></i><a class="hidden-sm">Kiến trúc sư: Midashome</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-clock-o"></i><a class="hidden-sm">Năm thi công: 2016</a>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="col-item">
-                                            <div class="info">
-                                                <a href="#" class="title-item-product">
-                                                    <h5>Mẫu thiết kế biệt thự 3 tầng cao cấp ở Đảo Phú Quốc- Kiên Giang BT1699</h5>
-                                                </a>
-                                            </div>
-    
-                                            <a href="#" class="photo">
-                                                <img src="<?php the_frontend(); ?>img/00gkgm51.png" class="img-fluid" alt="a" />
-                                            </a>
-                                            <div class="info">
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-calendar"></i><a class="hidden-sm">14/08/2018</a>
-                                                    </p>
-                                                    <p class="btn-details">
-                                                        <i class="fa fa-eye"></i><a class="hidden-sm">150</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-user-circle-o"></i><a class="hidden-sm">Chủ đầu tư: Ông bà Oanh Phong</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-location-arrow"></i><a class="hidden-sm">Địa điểm xây dựng: Tân Thành</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-home"></i><a class="hidden-sm">Phong cách: Tân cổ điển</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-users"></i><a class="hidden-sm">Kiến trúc sư: Midashome</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-clock-o"></i><a class="hidden-sm">Năm thi công: 2016</a>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="col-item">
-                                            <div class="info">
-                                                <a href="#" class="title-item-product">
-                                                    <h5>Mẫu thiết kế biệt thự 3 tầng cao cấp ở Đảo Phú Quốc- Kiên Giang BT1699</h5>
-                                                </a>
-                                            </div>
-    
-                                            <a href="#" class="photo">
-                                                <img src="<?php the_frontend(); ?>img/00gkgm51.png" class="img-fluid" alt="a" />
-                                            </a>
-                                            <div class="info">
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-calendar"></i><a class="hidden-sm">14/08/2018</a>
-                                                    </p>
-                                                    <p class="btn-details">
-                                                        <i class="fa fa-eye"></i><a class="hidden-sm">150</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-user-circle-o"></i><a class="hidden-sm">Chủ đầu tư: Ông bà Oanh Phong</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-location-arrow"></i><a class="hidden-sm">Địa điểm xây dựng: Tân Thành</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-home"></i><a class="hidden-sm">Phong cách: Tân cổ điển</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-users"></i><a class="hidden-sm">Kiến trúc sư: Midashome</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-clock-o"></i><a class="hidden-sm">Năm thi công: 2016</a>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
-                                                </div>
-                                            </div>
-                                        </div>
+
+                            <?php $y = 0; foreach($list_viewed as $house_id): global $post;  $post = get_post($house_id); ?>
+                                <?php if($y % 4 == 0): ?>
+
+                                <?php echo $y>0?"</div></div>":''; ?>
+
+                                <div class="item <?php echo $y==0?'active':''; ?>">
+                                    <div class="row">
+                                <?php endif; ?>
+
+                                    <?php get_template_part( 'template-parts/block/house'); ?>
+                                        
+                                <?php if($y>= count($list_viewed) -1): ?>
+
                                     </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <div class="col-item">
-                                            <div class="info">
-                                                <a href="#" class="title-item-product">
-                                                    <h5>Mẫu thiết kế biệt thự 3 tầng cao cấp ở Đảo Phú Quốc- Kiên Giang BT1699</h5>
-                                                </a>
-                                            </div>
-    
-                                            <a href="#" class="photo">
-                                                <img src="<?php the_frontend(); ?>img/00gkgm51.png" class="img-fluid" alt="a" />
-                                            </a>
-                                            <div class="info">
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-calendar"></i><a class="hidden-sm">14/08/2018</a>
-                                                    </p>
-                                                    <p class="btn-details">
-                                                        <i class="fa fa-eye"></i><a class="hidden-sm">150</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-user-circle-o"></i><a class="hidden-sm">Chủ đầu tư: Ông bà Oanh Phong</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-location-arrow"></i><a class="hidden-sm">Địa điểm xây dựng: Tân Thành</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-home"></i><a class="hidden-sm">Phong cách: Tân cổ điển</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-users"></i><a class="hidden-sm">Kiến trúc sư: Midashome</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-clock-o"></i><a class="hidden-sm">Năm thi công: 2016</a>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="col-item">
-                                            <div class="info">
-                                                <a href="#" class="title-item-product">
-                                                    <h5>Mẫu thiết kế biệt thự 3 tầng cao cấp ở Đảo Phú Quốc- Kiên Giang BT1699</h5>
-                                                </a>
-                                            </div>
-    
-                                            <a href="#" class="photo">
-                                                <img src="<?php the_frontend(); ?>img/00gkgm51.png" class="img-fluid" alt="a" />
-                                            </a>
-                                            <div class="info">
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-calendar"></i><a class="hidden-sm">14/08/2018</a>
-                                                    </p>
-                                                    <p class="btn-details">
-                                                        <i class="fa fa-eye"></i><a class="hidden-sm">150</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-user-circle-o"></i><a class="hidden-sm">Chủ đầu tư: Ông bà Oanh Phong</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-location-arrow"></i><a class="hidden-sm">Địa điểm xây dựng: Tân Thành</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-home"></i><a class="hidden-sm">Phong cách: Tân cổ điển</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-users"></i><a class="hidden-sm">Kiến trúc sư: Midashome</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-clock-o"></i><a class="hidden-sm">Năm thi công: 2016</a>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="col-item">
-                                            <div class="info">
-                                                <a href="#" class="title-item-product">
-                                                    <h5>Mẫu thiết kế biệt thự 3 tầng cao cấp ở Đảo Phú Quốc- Kiên Giang BT1699</h5>
-                                                </a>
-                                            </div>
-    
-                                            <a href="#" class="photo">
-                                                <img src="<?php the_frontend(); ?>img/00gkgm51.png" class="img-fluid" alt="a" />
-                                            </a>
-                                            <div class="info">
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-calendar"></i><a class="hidden-sm">14/08/2018</a>
-                                                    </p>
-                                                    <p class="btn-details">
-                                                        <i class="fa fa-eye"></i><a class="hidden-sm">150</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-user-circle-o"></i><a class="hidden-sm">Chủ đầu tư: Ông bà Oanh Phong</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-location-arrow"></i><a class="hidden-sm">Địa điểm xây dựng: Tân Thành</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-home"></i><a class="hidden-sm">Phong cách: Tân cổ điển</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-users"></i><a class="hidden-sm">Kiến trúc sư: Midashome</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-clock-o"></i><a class="hidden-sm">Năm thi công: 2016</a>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="col-item">
-                                            <div class="info">
-                                                <a href="#" class="title-item-product">
-                                                    <h5>Mẫu thiết kế biệt thự 3 tầng cao cấp ở Đảo Phú Quốc- Kiên Giang BT1699</h5>
-                                                </a>
-                                            </div>
-    
-                                            <a href="#" class="photo">
-                                                <img src="<?php the_frontend(); ?>img/00gkgm51.png" class="img-fluid" alt="a" />
-                                            </a>
-                                            <div class="info">
-                                                <div class="separator clear-left">
-                                                    <p class="btn-add">
-                                                        <i class="fa fa-calendar"></i><a class="hidden-sm">14/08/2018</a>
-                                                    </p>
-                                                    <p class="btn-details">
-                                                        <i class="fa fa-eye"></i><a class="hidden-sm">150</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-user-circle-o"></i><a class="hidden-sm">Chủ đầu tư: Ông bà Oanh Phong</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-location-arrow"></i><a class="hidden-sm">Địa điểm xây dựng: Tân Thành</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-home"></i><a class="hidden-sm">Phong cách: Tân cổ điển</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-users"></i><a class="hidden-sm">Kiến trúc sư: Midashome</a>
-                                                    </p>
-                                                    <p class="btn-detail">
-                                                        <i class="fa fa-clock-o"></i><a class="hidden-sm">Năm thi công: 2016</a>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <?php endif ?>
+                            <?php $y++; endforeach; wp_reset_postdata(); ?>
+
                         </div>
                     </div>
                 </div>
             </div>
             <!-- END CLICKED -->
+            <?php endif; ?>
        
     </div>
     <!-- /.container -->

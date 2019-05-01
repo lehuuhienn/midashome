@@ -171,4 +171,42 @@ function user_nickname_is_login( $meta, $user, $update ){
 }
 add_filter( 'insert_user_meta', 'user_nickname_is_login', 10, 3 );
 
+function get_menu_items_by_registered_slug($menu_slug) {
+    $menu_items = array();
+    if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_slug ] ) ) {
+        $menu = get_term( $locations[ $menu_slug ] );
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
+    }
+    return $menu_items;
+}
 
+function register_my_session()
+{
+	if(session_id() == ''){ session_start(); }
+}
+add_action('init', 'register_my_session');
+
+function get_house_viewed(){
+	$list_viewed = array();
+	if(session_id() == ''){ $list_viewed = array(); }
+	else{
+		if(!isset($_SESSION["listHouseViewed"])){
+			$list_viewed = array();
+			$_SESSION["listHouseViewed"] = "";
+		}
+		else{
+			$list_viewed = explode("|", $_SESSION["listHouseViewed"]);
+		}
+	}
+	return $list_viewed;
+}
+function set_house_viewed($house_id){
+	$list_viewed = get_house_viewed();
+	
+	foreach ($list_viewed as $key => $house) {
+		if($house == $house_id){return;}
+	}
+	$list_viewed[] = $house_id;
+	$_SESSION["listHouseViewed"] = implode("|", $list_viewed);
+	return $list_viewed;
+}

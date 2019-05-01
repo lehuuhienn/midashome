@@ -193,3 +193,36 @@ FORM GUI YEU CAU
 .form-ban-tin .gform_footer {
     text-align: right;
 }
+.comment-form,
+.comment-form textarea {
+    width: 100%;
+    outline: 0;
+}
+.comment-form textarea {
+    max-height: 150px;
+    padding: 15px;
+}
+.comment-form input {
+    outline: 0;
+}
+.comment-form .error {
+    color: red;
+}
+.comment-form.loading {
+    pointer-events: none;
+    opacity: 0.5;
+    position: relative;
+}
+.comment-form.loading:before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: transparent url("./frontend/img/loading.svg") no-repeat center / 100% auto;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+.carousel {
+    width: 100%;
+}
