@@ -185,6 +185,7 @@ FORM GUI YEU CAU
 .form-ban-tin input:not([type='submit']) {
     width: 100%;
     margin-top: 5px;
+    outline: 0;
 }
 .form-ban-tin input[type='submit'] {
     position: relative;
@@ -192,6 +193,11 @@ FORM GUI YEU CAU
 }
 .form-ban-tin .gform_footer {
     text-align: right;
+}
+.form-ban-tin textarea {
+    font-size: 14px;
+    padding: 15px 20px;
+    outline: 0;
 }
 .comment-form,
 .comment-form textarea {
@@ -225,4 +231,16 @@ FORM GUI YEU CAU
 }
 .carousel {
     width: 100%;
+}
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 500px;
+    width: 600px;
+}
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 500px;
+    width: 600px;
 }

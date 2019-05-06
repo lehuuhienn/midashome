@@ -23,7 +23,7 @@ get_header();
                         <a href="<?php echo get_permalink($intro_page); ?>" class="btn-about"><?php _e("Xem thêm", "themecustom");?> <i class="fa fa-chevron-right"></i></a>
                     </div>
                     <div class="col-lg-5">
-                        <img class="img-about" height="250" src="<?php echo get_the_post_thumbnail_url($intro_page, "medium") ?>" alt="<?php echo $intro_page->post_title; ?>">
+                        <img class="img-about" height="250" src="<?php echo get_the_post_thumbnail_url($intro_page, "large") ?>" alt="<?php echo $intro_page->post_title; ?>">
                     </div>
                 </div>
             </div>

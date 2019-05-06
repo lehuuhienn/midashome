@@ -37,6 +37,7 @@ html {
     padding: 7px 40px;
     border-style: 1px solid;
     border: 0;
+    text-transform: uppercase;
 }
 .mt-20 {
     margin-top: 10px;

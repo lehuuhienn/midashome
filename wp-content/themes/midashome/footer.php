@@ -85,6 +85,7 @@
                         <h4><?php the_field("company_name", "options"); ?></h4>
                         <p>Địa chỉ: <?php the_field("company_address", "options"); ?></p>
                         <p>Điện thoại: <?php the_field("company_phone", "options"); ?></p>
+                        <p>Hotline: <?php the_field("company_hotline", "options"); ?></p>
                         <p>Email: <?php the_field("company_email", "options"); ?></p>
                     </div>
                     <div class="col border-color">
