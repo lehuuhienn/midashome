@@ -4,12 +4,17 @@
 */
 
 
-global $banner_img_alt, $posts, $termObject;
+global $banner_img_alt, $posts;
 
 $termObject = get_term_by( 'slug', $term, $taxonomy);
 $banner_img_alt = get_field("feature_image", $termObject->ID);
+$house_cat_tag = get_terms(array(
+    'taxonomy' => 'house_cat',
+    'parent'=> $termObject->term_id,
+    // 'hide_empty' => true,
+)); 
 
-if($termObject->parent === 0){
+if($termObject->parent === 0 && count($house_cat_tag) > 0){
     get_template_part( 'template-parts/content-house_cat_parent');
     return;
 }
