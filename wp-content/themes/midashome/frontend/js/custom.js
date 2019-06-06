@@ -41,8 +41,16 @@
         })
     }
 
+    function menu_hover_click() {
+        $("#navbarNavDropdown .nav-item.dropdown .nav-link").on("click", function (e) {
+            if ($(window).width() < 992) { return; }
+            location.href = this.getAttribute("href");
+        })
+    }
+
     $(function () {
         sharejs();
         commment_ajax();
+        menu_hover_click();
     });
 })(jQuery);

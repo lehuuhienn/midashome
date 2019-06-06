@@ -3,12 +3,16 @@
     Taxonomy House Cat
 */
 
-get_header();
 
-global $banner_img_alt, $posts;
+global $banner_img_alt, $posts, $termObject;
 
 $termObject = get_term_by( 'slug', $term, $taxonomy);
 $banner_img_alt = get_field("feature_image", $termObject->ID);
+
+if($termObject->parent === 0){
+    get_template_part( 'template-parts/content-house_cat_parent');
+    return;
+}
 
 $current_page = get_query_var('page')?max(1, get_query_var('page')):1;
 
@@ -56,6 +60,8 @@ if(strlen($so_tang)>0 ){
 $posts = new WP_Query($args);
 
 $default_img = get_frontend()."img/00gkgm51.png";
+
+get_header();
 
 ?>
 

@@ -26,7 +26,7 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
         <link rel="app-themecustom" data-url="<?php the_frontend(); ?>" >
         <link rel="site-themecustom" data-url="<?php echo site_url(); ?>" >
 
-        <script>window.jQuery || document.write('<script src="<?php the_frontend(); ?>vendor/jquery/jquery.1.12.4.min.js"><\/script>')</script>
+        <!-- <script>window.jQuery || document.write('<script src="<?php the_frontend(); ?>vendor/jquery/jquery.1.12.4.min.js"><\/script>')</script> -->
         <?php wp_head(); ?>
         
     </head>
