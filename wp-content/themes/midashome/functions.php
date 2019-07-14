@@ -273,8 +273,12 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/backup-pluginname.php';
 
-
 /**
  * ACF
  */
 require get_template_directory() . '/inc/acf.php';
+
+/**
+ * WOOCOMMERCE
+ */
+require get_template_directory() . '/inc/woocommerce.php';

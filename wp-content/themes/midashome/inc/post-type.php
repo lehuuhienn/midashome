@@ -92,7 +92,14 @@ function change_post_menu_label() {
     $submenu['edit.php'][5][0] = __('Tất cả tin tức', 'themecustom');
     $submenu['edit.php'][10][0] = __('Thêm mới', 'themecustom');
     $submenu['edit.php'][15][0] = __('Danh mục', 'themecustom');
-    $submenu['edit.php'][16][0] = __('Các tag', 'themecustom');
+	$submenu['edit.php'][16][0] = __('Các tag', 'themecustom');
+
+	// var_dump($menu[26]);
+	// $menu[26][0] = __('Sản phẩm', 'themecustom');
+	// $submenu['edit.php?post_type=product'][5][0] = __('Tất cả sản phẩm', 'themecustom');
+	// $submenu['edit.php?post_type=product'][10][0] = __('Thêm mới', 'themecustom');
+	// $submenu['edit.php?post_type=product'][15][0] = __('Danh mục', 'themecustom');
+	// $submenu['edit.php?post_type=product'][17][0] = __('Thuộc tính', 'themecustom');
 }
 function change_post_object_label() {
 	global $wp_post_types;

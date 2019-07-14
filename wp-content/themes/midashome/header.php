@@ -78,4 +78,15 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
                 </ul>
                 <?php endif; ?>
             </div>
+            <?php if(is_user_logged_in()): ?>
+            <div>
+                <a href="<?php echo site_url("/tai-khoan") ?>" class="btn btn-login text-white">TÀI KHOẢN</a>
+                <a href="<?php echo wp_logout_url(); ?>" class="btn btn-login text-white">ĐĂNG XUẤT</a>
+            </div>
+            <?php else: ?>
+            <div>
+                <a href="<?php echo site_url("/signin") ?>" class="btn btn-login text-white">ĐĂNG NHẬP</a>
+                <a href="<?php echo site_url("/signup") ?>" class="btn btn-login text-white">ĐĂNG KÝ</a>
+            </div>
+            <?php endif; ?>
         </nav>
