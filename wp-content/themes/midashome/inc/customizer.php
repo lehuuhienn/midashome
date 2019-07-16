@@ -166,7 +166,6 @@ function the_frontend(){
 
 function user_nickname_is_login( $meta, $user, $update ){
 	$meta["nickname"] = $user->user_login;
-	var_dump(1); die;
 	return $meta;
 }
 add_filter( 'insert_user_meta', 'user_nickname_is_login', 10, 3 );

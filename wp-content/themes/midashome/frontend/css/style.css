@@ -607,8 +607,6 @@ img {
     border-radius: 100px;
 }
 #cart .shopping-cart {
-    width: 750px;
-    height: 423px;
     margin: 80px auto;
     background: #fff;
     box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
@@ -775,10 +773,37 @@ img {
     background-color: #ffcccc;
 }
 .info-cart>form .form-group>input,
+form.checkout input,
 textarea {
-    height: 45px;
+    background-clip: padding-box;
+    background-color: #fff;
     border-radius: 50px;
+    border: 0;
+    border: 1px solid #ced4da;
+    color: #495057;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    height: calc(2.25rem + 2px);
+    min-height: 45px;
+    line-height: 1.5;
+    padding: .375rem .75rem;
     padding-left: 2rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    width: 100%;
+}
+form.checkout .woocommerce-input-wrapper {
+    width: 100% !important;
+    display: block !important;
+}
+form.checkout textarea {
+    border-radius: 4px;
+    max-height: 150px;
+    padding-left: .75rem;
+}
+.woocommerce-page form .form-row-first,
+.woocommerce-page form .form-row-last {
+    width: 100%;
 }
 .submit-cart {
     width: auto !important;

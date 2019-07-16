@@ -12,7 +12,9 @@
  */
 
 ?>      
+        
         <?php
+        if(!is_page('thanh-toan')):
             $link_youtube = get_field("link_youtube", "options");
             $you_need_find = get_field("you_need_find", "options");
         ?>
@@ -51,6 +53,8 @@
                 </div>
             </div>
         </section>
+
+        <?php endif; ?>
 
         <?php $link_cac_menu_con_repeat = get_field('link_cac_menu_con_repeat', "options"); ?>
         <?php if($link_cac_menu_con_repeat): ?>
