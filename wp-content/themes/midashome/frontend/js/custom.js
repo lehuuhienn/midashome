@@ -48,9 +48,82 @@
         })
     }
 
+    function cart_checkout() {
+        $(document.body).on('click', '.remove-item', function (e) {
+            e.preventDefault();
+            var host = $('link[rel=site-themecustom]').data('url'),
+                $form = $(".shopping-cart");
+            $form.addClass('processing').block({
+                message: null,
+                overlayCSS: { background: '#fff', opacity: 0.6 }
+            });
+            $.ajax({
+                type: "POST",
+                url: host + "/wp-admin/admin-ajax.php",
+                data: {
+                    action: 'remove_item_from_cart',
+                    'cart_item_key': $(this).data('cart-item-key')
+                }
+            }).done(function (e) {
+                $(document.body).trigger('update_checkout');
+            }).fail(function (e) {
+                console.log(e);
+            });
+        });
+
+        $(document.body).on('click', '.like-btn', function () {
+            $(this).toggleClass('is-active');
+        });
+
+        $(document.body).on('click', '.quantity-edit-btn', function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $input = $this.closest('div').find('input');
+            var value = parseInt($input.val());
+
+            if ($this.hasClass('minus-btn')) {
+                if (value > 1) {
+                    value = value - 1;
+                } else {
+                    value = 1;
+                }
+            }
+            else {
+                if (value < 100) {
+                    value = value + 1;
+                } else {
+                    value = 100;
+                }
+            }
+            $input.val(value);
+
+            var host = $('link[rel=site-themecustom]').data('url'),
+                $form = $(".shopping-cart");
+            $form.addClass('processing').block({
+                message: null,
+                overlayCSS: { background: '#fff', opacity: 0.6 }
+            });
+            $.ajax({
+                type: "POST",
+                url: host + "/wp-admin/admin-ajax.php",
+                data: {
+                    action: 'update_item_qty_from_cart',
+                    'cart_item_key': $(this).closest('.quantity').data('cart-item-key'),
+                    quantity: value
+                }
+            }).done(function (e) {
+                $(document.body).trigger('update_checkout');
+            }).fail(function (e) {
+                console.log(e);
+            });
+
+        });
+    }
+
     $(function () {
         sharejs();
         commment_ajax();
         menu_hover_click();
+        cart_checkout();
     });
 })(jQuery);

@@ -14,7 +14,7 @@
 ?>      
         
         <?php
-        if(!is_page('thanh-toan')):
+        if(!is_page(array('thanh-toan', 'dang-ky', 'tai-khoan'))):
             $link_youtube = get_field("link_youtube", "options");
             $you_need_find = get_field("you_need_find", "options");
         ?>

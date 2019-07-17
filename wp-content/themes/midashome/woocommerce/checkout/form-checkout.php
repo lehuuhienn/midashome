@@ -39,37 +39,37 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 				</div>
 
 				<?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) : ?>
-				<?php
-					$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-				?>
-				<!-- Product #1 -->
-				<div class="item">
-					<div class="buttons">
-						<span class="delete-btn"></span>
-						<span class="like-btn"></span>
-					</div>
+					<?php
+						$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+					?>
+					<!-- Product #1 -->
+					<div class="item">
+						<div class="buttons">
+							<span data-cart-item-key="<?php echo $cart_item_key; ?>" class="delete-btn remove-item"></span>
+							<span data-cart-item-key="<?php echo $cart_item_key; ?>" class="like-btn"></span>
+						</div>
 
-					<div class="image">
-						<img src="<?php the_frontend(); ?>img/item-1.png" alt="" />
-					</div>
+						<div class="image">
+							<img src="<?php echo get_the_post_thumbnail_url($_product->get_ID(), "thumbnail") ?>" alt="" style="max-height:80px" />
+						</div>
 
-					<div class="description">
-						<?php echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;'; ?>
-						<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>
-					</div>
+						<div class="description">
+							<?php echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;'; ?>
+							<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>
+						</div>
 
-					<div class="quantity">
-						<button class="plus-btn" type="button" name="button">
-							<img src="<?php the_frontend(); ?>img/plus.svg" alt="" />
-						</button>
-						<input type="text" name="name" value="<?php echo $cart_item['quantity']; ?>">
-						<button class="minus-btn" type="button" name="button">
-							<img src="<?php the_frontend(); ?>img/minus.svg" alt="" />
-						</button>
-					</div>
+						<div class="quantity" data-cart-item-key="<?php echo $cart_item_key; ?>">
+							<button class="plus-btn quantity-edit-btn" type="button" name="button">
+								<img src="<?php the_frontend(); ?>img/plus.svg" alt="" />
+							</button>
+							<input type="text" name="name" value="<?php echo $cart_item['quantity']; ?>">
+							<button class="minus-btn quantity-edit-btn" type="button" name="button">
+								<img src="<?php the_frontend(); ?>img/minus.svg" alt="" />
+							</button>
+						</div>
 
-					<div class="total-price"><?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?></div>
-				</div>
+						<div class="total-price"><?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?></div>
+					</div>
 
 				<?php endforeach; ?>
 

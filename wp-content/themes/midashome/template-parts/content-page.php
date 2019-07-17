@@ -41,13 +41,13 @@ if($isTermLayout){
 			<div class="container">
 
 				<!-- Term & Codition -->
-				<div class="<?php !is_page('thanh-toan')?'about':''; ?>" style="position: relative">
-					<?php if(!is_page('thanh-toan')): ?>
+				<div class="<?php !is_page(array('thanh-toan', 'dang-ky', 'tai-khoan'))?'about':''; ?>" style="position: relative">
+					<?php if(!is_page(array('thanh-toan', 'dang-ky', 'tai-khoan'))): ?>
 					<div class="red-line"></div>
 					<button class="button-midas"><?php the_title(); ?></button>
 					<?php endif; ?>
 					<div class="row mt-20">
-						<div class="<?php !is_page('thanh-toan')?'bg-term p-4 ':''; ?><?php echo $isTermLayout?'col-lg-9 ':'col-lg-12 '; ?>">
+						<div class="<?php !is_page(array('thanh-toan', 'dang-ky', 'tai-khoan'))?'bg-term p-4 ':''; ?><?php echo $isTermLayout?'col-lg-9 ':'col-lg-12 '; ?>">
 							<?php
 								the_content();
 

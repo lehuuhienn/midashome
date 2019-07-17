@@ -85,8 +85,8 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
             </div>
             <?php else: ?>
             <div>
-                <a href="<?php echo site_url("/signin") ?>" class="btn btn-login text-white">ĐĂNG NHẬP</a>
-                <a href="<?php echo site_url("/signup") ?>" class="btn btn-login text-white">ĐĂNG KÝ</a>
+                <a href="<?php echo site_url("/tai-khoan") ?>" class="btn btn-login text-white">ĐĂNG NHẬP</a>
+                <a href="<?php echo site_url("/dang-ky") ?>" class="btn btn-login text-white">ĐĂNG KÝ</a>
             </div>
             <?php endif; ?>
         </nav>
