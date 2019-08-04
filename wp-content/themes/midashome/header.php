@@ -32,6 +32,9 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
     </head>
 
     <body <?php body_class(); ?>>
+
+        <div class="page-wrap">
+
         <?php $company_name = get_field("company_name", "options"); ?>
         <?php $company_logo = get_field("company_logo", "options"); ?>
         <?php $company_logo = $company_logo?$company_logo['sizes']['medium']:get_frontend()."img/Official Logo.png" ?>
@@ -79,12 +82,12 @@ if(!function_exists("get_field")){ echo 'We need to install ACF Plugin!'; die;}
                 <?php endif; ?>
             </div>
             <?php if(is_user_logged_in()): ?>
-            <div>
+            <div class="puser">
                 <a href="<?php echo site_url("/tai-khoan") ?>" class="btn btn-login text-white">TÀI KHOẢN</a>
                 <a href="<?php echo wp_logout_url(); ?>" class="btn btn-login text-white">ĐĂNG XUẤT</a>
             </div>
             <?php else: ?>
-            <div>
+            <div class="puser">
                 <a href="<?php echo site_url("/tai-khoan") ?>" class="btn btn-login text-white">ĐĂNG NHẬP</a>
                 <a href="<?php echo site_url("/dang-ky") ?>" class="btn btn-login text-white">ĐĂNG KÝ</a>
             </div>
