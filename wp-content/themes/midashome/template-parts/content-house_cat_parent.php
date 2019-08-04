@@ -50,7 +50,7 @@ $house_cat_tag = get_terms(array(
                                 <a class="right fa fa-chevron-right btn btn-slide" href="#carousel-house-<?php echo ($key+1); ?>" data-slide="next"></a>
                                 <a class="left fa fa-chevron-left btn btn btn-slide" href="#carousel-house-<?php echo ($key+1); ?>" data-slide="prev"></a>
                             </div>
-                            <div id="carousel-house-<?php echo ($key+1); ?>" class="carousel slide hidden-xs" data-ride="carousel">
+                            <div id="carousel-house-<?php echo ($key+1); ?>" class="carousel slide carousel-multi-item" data-ride="carousel">
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
                                     

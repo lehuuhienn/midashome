@@ -215,7 +215,7 @@ $list_viewed = get_house_viewed();
                         <a class="right fa fa-chevron-right btn btn-slide" href="#carousel-listviewed" data-slide="next"></a>
                         <a class="left fa fa-chevron-left btn btn btn-slide" href="#carousel-listviewed" data-slide="prev"></a>
                     </div>
-                    <div id="carousel-listviewed" class="carousel slide hidden-xs" data-ride="carousel">
+                    <div id="carousel-listviewed" class="carousel slide carousel-multi-item" data-ride="carousel">
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
 
