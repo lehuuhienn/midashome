@@ -99,7 +99,7 @@ get_header();
                 <button class="button-midas button-center"><?php the_field('workflow_title'); ?></button>
                 <div class="row mt-3 text-center">
                     <?php foreach($workflow_repeat as $w): ?>
-                        <div class="col">
+                        <div class="col-sm-6 col-lg-3">
                             <img src="<?php echo $w['img']['sizes']['medium']; ?>" alt="">
                             <h4 class="mt-3 text-color"><?php echo $w['title']; ?></h4>
                             <p><?php echo $w['des']; ?></p>

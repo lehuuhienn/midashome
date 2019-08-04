@@ -854,6 +854,6 @@ form.checkout textarea {
     display: none;
 }
 /* Ảnh quy trình làm việc nhỏ lại */
-.lazyloaded {
-    widows: 7vw;
+.work .lazyloaded {
+    width: 7vw;
 }
