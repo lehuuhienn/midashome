@@ -62,7 +62,7 @@ get_header();
                                 <a class="right fa fa-chevron-right btn btn-slide" href="#carousel-house-<?php echo ($key+1); ?>" data-slide="next"></a>
                                 <a class="left fa fa-chevron-left btn btn btn-slide" href="#carousel-house-<?php echo ($key+1); ?>" data-slide="prev"></a>
                             </div>
-                            <div id="carousel-house-<?php echo ($key+1); ?>" class="carousel slide hidden-xs" data-ride="carousel">
+                            <div id="carousel-house-<?php echo ($key+1); ?>" class="carousel slide carousel-multi-item" data-ride="carousel">
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
                                     
@@ -99,7 +99,7 @@ get_header();
                 <button class="button-midas button-center"><?php the_field('workflow_title'); ?></button>
                 <div class="row mt-3 text-center">
                     <?php foreach($workflow_repeat as $w): ?>
-                        <div class="col">
+                        <div class="col-sm-6 col-lg-3">
                             <img src="<?php echo $w['img']['sizes']['medium']; ?>" alt="">
                             <h4 class="mt-3 text-color"><?php echo $w['title']; ?></h4>
                             <p><?php echo $w['des']; ?></p>
