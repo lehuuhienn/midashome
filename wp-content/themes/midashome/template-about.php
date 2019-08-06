@@ -15,7 +15,7 @@ get_header();
                 <!-- About us -->
                 <div class="about">
                     <div class="red-line"></div>
-                    <button class="button-midas"><?php the_title(); ?></button>
+                    <button class="button-midas button-center"><?php the_title(); ?></button>
                     <div class="mt-20 pl-3">
                         <?php
                             while ( have_posts() ) :

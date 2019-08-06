@@ -16,7 +16,7 @@ get_header();
             <!-- About us -->
             <div class="about">
                 <div class="red-line"></div>
-                <button class="button-midas"><?php echo $intro_page->post_title; ?></button>
+                <button class="button-midas button-center"><?php echo $intro_page->post_title; ?></button>
                 <div class="row align-items-center mt-20">
                     <div class="col-lg-7">
                         <p><?php echo $intro_page->post_excerpt?$intro_page->post_excerpt:wp_trim_words($intro_page->post_content, 125, "..."); ?></p>
@@ -56,7 +56,7 @@ get_header();
                     ?>
                     <div class="slide-home">
                         <div class="red-line"></div>
-                        <button class="button-midas"><?php echo $term->name; ?></button>
+                        <button class="button-midas button-center"><?php echo $term->name; ?></button>
                         <div class="row align-items-center mt-20">
                             <div class="controls float-xs-right hidden-xs w-100">
                                 <a class="right fa fa-chevron-right btn btn-slide" href="#carousel-house-<?php echo ($key+1); ?>" data-slide="next"></a>

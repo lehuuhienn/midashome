@@ -69,7 +69,7 @@ $default_img = get_frontend()."img/00gkgm51.png";
     <!-- About us -->
     <div class="about">
         <div class="red-line"></div>
-        <a href="<?php echo get_term_link($termObject); ?>"><button class="button-midas"><?php echo $termObject->name; ?></button></a>
+        <a href="<?php echo get_term_link($termObject); ?>"><button class="button-midas button-center"><?php echo $termObject->name; ?></button></a>
         <form action="" method="GET" class="row mt-20 pl-3">
             <div class="col">
                 <select name="so_phong_ngu" class="input-filter mt-3">

@@ -86,7 +86,7 @@ get_header( 'shop' );
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 		<div class="about mb-4">
 			<div class="red-line"></div>
-			<h1 class="button-midas" style="display: inline-block;margin: 0;font-size: 14px"><?php woocommerce_page_title(); ?></h1>
+			<h1 class="button-midas button-center" style="display: inline-block;margin: 0;font-size: 14px"><?php woocommerce_page_title(); ?></h1>
 		</div>
 	<?php endif; ?>
 

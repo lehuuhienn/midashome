@@ -158,7 +158,7 @@ $list_viewed = get_house_viewed();
             <!-- LOGO -->
             <div class="about">
                 <div class="red-line"></div>
-                <button class="button-midas">MÔ TẢ CHI TIẾT</button>
+                <button class="button-midas button-center">MÔ TẢ CHI TIẾT</button>
                 <div class="detail mt-2">
                     <?php echo $post->post_excerpt?$post->post_excerpt:wp_trim_words($post->post_content, 188, "..."); ?>
                 </div>
@@ -176,7 +176,7 @@ $list_viewed = get_house_viewed();
             <!-- comments -->
             <div class="about ">
                 <div class="red-line"></div>
-                <button class="button-midas">BÌNH LUẬN</button>
+                <button class="button-midas button-center">BÌNH LUẬN</button>
                 <ul class="commentlist">
                     <?php $comments = get_comments($args = array( 'post_id' => $post->ID, 'status'=>'approve', 'paged' => -1)); ?>
                 </ul>
@@ -209,7 +209,7 @@ $list_viewed = get_house_viewed();
             <!-- START CLICKED -->
             <div class="slide-home mt-5 ">
                 <div class="red-line"></div>
-                <button class="button-midas">CÔNG TRÌNH VỪA XEM</button>
+                <button class="button-midas button-center">CÔNG TRÌNH VỪA XEM</button>
                 <div class="row align-items-center mt-20">
                     <div class="controls float-xs-right hidden-xs w-100">
                         <a class="right fa fa-chevron-right btn btn-slide" href="#carousel-listviewed" data-slide="next"></a>

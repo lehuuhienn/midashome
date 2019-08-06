@@ -19,7 +19,7 @@
             <div class="separator clear-left">
                 <p class="btn-add">
                     <i class="fa fa-calendar"></i>
-                    <span class=""><?php the_date('d/m/Y'); ?></span>
+                    <span class=""><?php echo date('d/m/Y', strtotime($post->post_date)); ?></span>
                 </p>
                 <p class="btn-details1 float-right">
                     <i class="fa fa-eye"></i>

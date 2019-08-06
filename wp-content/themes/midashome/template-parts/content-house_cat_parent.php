@@ -44,7 +44,7 @@ $house_cat_tag = get_terms(array(
                     ?>
                     <div class="slide-home">
                         <div class="red-line"></div>
-                        <a href="<?php echo get_term_link($term); ?>"><button class="button-midas"><?php echo $term->name; ?></button></a>
+                        <a href="<?php echo get_term_link($term); ?>"><button class="button-midas button-center"><?php echo $term->name; ?></button></a>
                         <div class="row align-items-center mt-20">
                             <div class="controls float-xs-right hidden-xs w-100">
                                 <a class="right fa fa-chevron-right btn btn-slide" href="#carousel-house-<?php echo ($key+1); ?>" data-slide="next"></a>

@@ -24,7 +24,7 @@
                 <!-- VIDEO -->
                 <div class="about">
                     <div class="red-line"></div>
-                    <button class="button-midas">VIDEO</button>
+                    <button class="button-midas button-center">VIDEO</button>
                     <div class="row mt-3 text-center">
                         <div class="col">
                             <?php echo $link_youtube; ?>

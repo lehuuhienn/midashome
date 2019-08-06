@@ -1,3 +1,5 @@
+if (jQuery && !$) $ = jQuery;
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -42,8 +44,6 @@ function viewDetail(n) {
         $('.btn-hide').hide();
     }
 }
-
-
 
 (function ($) {
 

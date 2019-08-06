@@ -14,7 +14,7 @@
     <!-- About us -->
     <div class="about">
         <div class="red-line"></div>
-        <button class="button-midas"><?php _e("TIN TỨC", "themecustom");?></button>
+        <button class="button-midas button-center"><?php _e("TIN TỨC", "themecustom");?></button>
 
         <?php if($post):?>
         <div class="row mt-3">
