@@ -27,8 +27,8 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     -o-object-fit: cover;
     object-fit: cover;
     font-family: 'object-fit: cover;';
@@ -71,7 +71,8 @@ Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-me
     }
 }
 .item-banner {
-    height: 36vw;
+    width: 100% !important;
+    height: 36vw !important;
     max-height: 590px;
 }
 img.alignright {
