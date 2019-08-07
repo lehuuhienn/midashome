@@ -230,9 +230,10 @@ function themecustom_scripts() {
 	$fe = get_frontend();
 	
 	// CSS
-	wp_enqueue_style( 'themecustom-frontend-css-bootstrap3', $fe ."vendor/jquery/bootstrap.min.css" );
+	
 	wp_enqueue_style( 'themecustom-frontend-css-font-awesome', $fe . "vendor/font-awesome/css/font-awesome.css" );
 	wp_enqueue_style( 'themecustom-frontend-css-bootstrap4', $fe . "vendor/bootstrap/css/bootstrap.min.css" );
+	wp_enqueue_style( 'themecustom-frontend-css-bootstrap3', $fe ."vendor/jquery/bootstrap.min.css" );
 	wp_enqueue_style( 'themecustom-frontend-css-jssocials', $fe . "vendor/jsSocial/jssocials.css" );
 	wp_enqueue_style( 'themecustom-frontend-css-style', $fe . "css/style.css" );
 
